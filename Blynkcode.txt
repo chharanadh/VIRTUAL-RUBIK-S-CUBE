@@ -1,0 +1,324 @@
+/*************************************************************
+  Download latest Blynk library here:
+    https://github.com/blynkkk/blynk-library/releases/latest
+
+  Blynk is a platform with iOS and Android apps to control
+  Arduino, Raspberry Pi and the likes over the Internet.
+  You can easily build 0graphic interfaces for all your
+  projects by simply dragging and dropping widgets.
+
+    Downloads, docs, tutorials: http://www.blynk.cc
+    Sketch generator:           http://examples.blynk.cc
+    Blynk community:            http://community.blynk.cc
+    Follow us:                  http://www.fb.com/blynkapp
+                                http://twitter.com/blynk_app
+
+  Blynk library is licensed under MIT license
+  This example code is in public domain.
+
+ *************************************************************
+  This example runs directly on NodeMCU.
+
+  Note: This requires ESP8266 support package:
+    https://github.com/esp8266/Arduino
+
+  Please be sure to select the right NodeMCU module
+  in the Tools -> Board menu!
+
+  For advanced settings please follow ESP examples :
+   - ESP8266_Standalone_Manual_IP.ino
+   - ESP8266_Standalone_SmartConfig.ino
+   - ESP8266_Standalone_SSL.ino
+
+  Change WiFi ssid, pass, and Blynk auth token to run :)
+  Feel free to apply it to any other example. It's simple!
+ *************************************************************/
+
+/* Comment this out to disable prints and save space */
+#define BLYNK_PRINT Serial
+#include <ESP8266WiFi.h>
+#include <BlynkSimpleEsp8266.h>
+
+// You should get Auth Token in the Blynk App.
+// Go to the Project Settings (nut icon).
+char auth[] = "a9d211c2baf449829fa8698d496aaa9a";
+
+// Your WiFi credentials.
+// Set password to "" for open networks.
+char ssid[] = "Blynk";
+char pass[] = "12345678";
+int x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18;
+void setup()
+{
+  // Debug console
+  Serial.begin(9600);
+
+  Blynk.begin(auth, ssid, pass);
+  // You can also specify server:
+  //Blynk.begin(auth, ssid, pass, "blynk-cloud.com", 8442);
+  //Blynk.begin(auth, ssid, pass, IPAddress(192,168,1,100), 8442);
+  pinMode(16, OUTPUT);//D0
+  pinMode(5,OUTPUT);//D1
+  pinMode(4, OUTPUT);//D2
+  pinMode(0,OUTPUT);//D3
+  pinMode(2, OUTPUT);//D4
+ 
+  
+}
+
+void loop()
+{
+/////////////////////////////////////////////////////////
+
+
+if(x1){
+
+ 
+ digitalWrite(2,HIGH);
+ digitalWrite(0,LOW);
+ digitalWrite(4,LOW);
+ digitalWrite(5,HIGH);
+ digitalWrite(16,HIGH);
+
+}
+
+else if(x2){
+
+ digitalWrite(2,LOW);
+ digitalWrite(0,LOW);
+ digitalWrite(4,LOW);
+ digitalWrite(5,HIGH);
+ digitalWrite(16,LOW); 
+
+}
+else if(x3){
+  
+ digitalWrite(2,LOW);
+ digitalWrite(0,LOW);
+ digitalWrite(4,LOW);
+ digitalWrite(5,HIGH);
+ digitalWrite(16,HIGH); 
+  
+  
+}
+else if(x4){
+ digitalWrite(2,LOW);
+ digitalWrite(0,LOW);
+ digitalWrite(4,HIGH);
+ digitalWrite(5,LOW);
+ digitalWrite(16,LOW); 
+}
+else if(x5){
+ digitalWrite(2,LOW);
+ digitalWrite(0,LOW);
+ digitalWrite(4,HIGH);
+ digitalWrite(5,LOW);
+ digitalWrite(16,HIGH); 
+}
+else if(x6){
+ digitalWrite(2,LOW);
+ digitalWrite(0,LOW);
+ digitalWrite(4,HIGH);
+ digitalWrite(5,HIGH);
+ digitalWrite(16,LOW); 
+}
+else if(x7){
+ digitalWrite(2,LOW);
+ digitalWrite(0,LOW);
+ digitalWrite(4,HIGH);
+ digitalWrite(5,HIGH);
+ digitalWrite(16,HIGH); 
+}
+else if(x8){
+ digitalWrite(2,LOW);
+ digitalWrite(0,HIGH);
+ digitalWrite(4,LOW);
+ digitalWrite(5,LOW);
+ digitalWrite(16,LOW); 
+}
+else if(x9){
+ digitalWrite(2,LOW);
+ digitalWrite(0,HIGH);
+ digitalWrite(4,LOW);
+ digitalWrite(5,LOW);
+ digitalWrite(16,HIGH); 
+}
+else if(x10){
+ digitalWrite(2,LOW);
+ digitalWrite(0,HIGH);
+ digitalWrite(4,LOW);
+ digitalWrite(5,HIGH);
+ digitalWrite(16,LOW); 
+}
+else if(x11){
+ digitalWrite(2,LOW);
+ digitalWrite(0,HIGH);
+ digitalWrite(4,LOW);
+ digitalWrite(5,HIGH);
+ digitalWrite(16,HIGH); 
+}
+else if(x12){
+ digitalWrite(2,LOW);
+ digitalWrite(0,HIGH);
+ digitalWrite(4,HIGH);
+ digitalWrite(5,LOW);
+ digitalWrite(16,LOW); 
+}
+else if(x13){
+ digitalWrite(2,LOW);
+ digitalWrite(0,HIGH);
+ digitalWrite(4,HIGH);
+ digitalWrite(5,LOW);
+ digitalWrite(16,HIGH); 
+}
+else if(x14){
+ digitalWrite(2,LOW);
+ digitalWrite(0,HIGH);
+ digitalWrite(4,HIGH);
+ digitalWrite(5,HIGH);
+ digitalWrite(16,LOW); 
+}
+else if(x15){
+ digitalWrite(2,LOW);
+ digitalWrite(0,HIGH);
+ digitalWrite(4,HIGH);
+ digitalWrite(5,HIGH);
+ digitalWrite(16,HIGH); 
+}
+else if(x16){
+ digitalWrite(2,HIGH);
+ digitalWrite(0,LOW);
+ digitalWrite(4,LOW);
+ digitalWrite(5,LOW);
+ digitalWrite(16,LOW); 
+}
+else if(x17){
+ digitalWrite(2,HIGH);
+ digitalWrite(0,LOW);
+ digitalWrite(4,LOW);
+ digitalWrite(5,LOW);
+ digitalWrite(16,HIGH); 
+}
+else if(x18){
+ digitalWrite(2,HIGH);
+ digitalWrite(0,LOW);
+ digitalWrite(4,LOW);
+ digitalWrite(5,HIGH);
+ digitalWrite(16,LOW); 
+}
+else
+{
+ 
+ digitalWrite(2,LOW); 
+ digitalWrite(0,LOW);
+ digitalWrite(4,LOW);
+ digitalWrite(5,LOW);
+ digitalWrite(16,LOW);
+
+}
+
+ 
+
+//////////////////////////////////////////////////////////////////// 
+  Blynk.run();
+}
+
+
+
+
+
+
+
+
+/////////////VirtualPINS 1-18//////////////////////////////////////////
+
+//V1
+BLYNK_WRITE(V1)
+{
+  
+x1= param.asInt();
+
+
+
+}
+//V2
+BLYNK_WRITE(V2)
+{
+x2= param.asInt();
+
+
+
+
+}
+//V3
+BLYNK_WRITE(V3)
+{
+x3= param.asInt();
+}
+//V4
+BLYNK_WRITE(V4)
+{
+x4= param.asInt();
+}
+//V5
+BLYNK_WRITE(V5)
+{
+x5= param.asInt();
+}
+//V6
+BLYNK_WRITE(V6)
+{
+x6= param.asInt();
+}
+//V7
+BLYNK_WRITE(V7)
+{
+x7= param.asInt();
+}
+//V8
+BLYNK_WRITE(V8)
+{
+x8= param.asInt();
+}
+//V9
+BLYNK_WRITE(V9)
+{
+x9= param.asInt();
+}
+//V10
+BLYNK_WRITE(V10)
+{
+x10= param.asInt();
+}
+BLYNK_WRITE(V11)
+{
+x11= param.asInt();
+}
+BLYNK_WRITE(V12)
+{
+x12= param.asInt();
+}
+BLYNK_WRITE(V13)
+{
+x13= param.asInt();
+}
+BLYNK_WRITE(V14)
+{
+x14= param.asInt();
+}
+BLYNK_WRITE(V15)
+{
+x15= param.asInt();
+}
+BLYNK_WRITE(V16)
+{
+x16= param.asInt();
+}
+BLYNK_WRITE(V17)
+{
+x17= param.asInt();
+}
+BLYNK_WRITE(V18)
+{
+x18= param.asInt();
+}
